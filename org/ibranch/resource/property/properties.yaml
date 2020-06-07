@@ -1,0 +1,35 @@
+logger:
+  path: ./resource/property/logging.conf
+  level: INFO
+
+driver_path:
+  chrome: ./resource/driver/mac
+#  chrome: ./resource/driver/ubuntu
+
+screenshot_path: ./screenshot
+
+schedule:
+  presentation:
+    type: one-off
+#  presentation:
+#    type: sec
+#    sec: 10
+#  presentation:
+#    type: cron
+#    cron: "19,39,59 * * * *"
+  jobs:
+    package: org.ibranch.engine.job.tech_radar
+    module: Job
+    list:
+      - PresentationJob
+
+thread_pool:
+  presentation:
+    size: 10
+
+client:
+  tmp_dir: ./tmp_file
+  requests:
+    timeout: 6 # in second
+  selenium:
+    timeout: 60 # in second
