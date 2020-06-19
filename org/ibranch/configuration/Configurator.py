@@ -19,11 +19,48 @@ def check_initialization(func):
 
 @singleton
 class Configuration:
-    def __init__(self):
+    def __init__(self, args):
         self._root_dir = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
         self._path = os.path.join(self._root_dir, "resource/property/properties.yaml")
         self.ad_hoc_properties = dict()
         self._cfg = None
+        self._init_config()
+        self._init_logging()
+        self._init_args(args)
+
+    def _init_args(self, args):
+        if not args or len(args) == 0:
+            return
+        ad_hoc_cfg = dict()
+        key, values = None, list()
+        for item in args:
+
+            if item.startswith('-'):
+                ## Add value to previous key
+                if None is not key:
+                    ad_hoc_cfg[key] = values.copy()
+
+                ## Create new key
+                values.clear()
+                key = item.replace('-', '')
+            else:
+                values.append(item)
+        ad_hoc_cfg[key] = values
+
+        for key, values in ad_hoc_cfg.items():
+            value = values
+            if len(value) == 0:
+                value = ''
+            elif len(value) == 1:
+                value = value[0]
+            self.replace_property(key, value)
+
+        path = self.getPropertyWithDefault('cfg_path', None)
+
+        if path:
+            self.file_path(path)
+            self._init_config()
+            self._init_logging()
 
     def _init_logging(self):
         path = self.getProperty('logger.path')
@@ -55,11 +92,6 @@ class Configuration:
         if None is path or len(path.strip()) == 0:
             raise SystemError('Configuration path is invalid!')
         self._path = path
-        return self
-
-    def initialize(self):
-        self._init_config()
-        self._init_logging()
         return self
 
     @check_initialization
