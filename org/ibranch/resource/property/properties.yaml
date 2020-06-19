@@ -8,24 +8,24 @@ driver_path:
 
 screenshot_path: ./screenshot
 
-schedule:
-  presentation:
-    type: one-off
-#  presentation:
+#schedule:
+#  {job_name:
+#    type: one-off
+#  {job_name}:
 #    type: sec
 #    sec: 10
-#  presentation:
+#  {job_name}:
 #    type: cron
 #    cron: "19,39,59 * * * *"
-  jobs:
-    package: org.ibranch.engine.job.tech_radar
-    module: Job
-    list:
-      - PresentationJob
+#  jobs:
+#    package: {job_package_name}
+#    module: {job_file_name}
+#    list:
+#      - {job_class_name}
 
-thread_pool:
-  presentation:
-    size: 10
+#thread_pool:
+#  {pool_name}:
+#    size: 10
 
 client:
   tmp_dir: ./tmp_file

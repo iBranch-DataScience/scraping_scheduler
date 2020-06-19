@@ -1,5 +1,6 @@
 import logging
 import logging.config
+import os
 
 import config_with_yaml as config
 from singleton_decorator import singleton
@@ -19,19 +20,36 @@ def check_initialization(func):
 @singleton
 class Configuration:
     def __init__(self):
-        self._path = "resource/property/properties.yaml"
+        self._root_dir = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+        self._path = os.path.join(self._root_dir, "resource/property/properties.yaml")
         self.ad_hoc_properties = dict()
-
+        self._cfg = None
 
     def _init_logging(self):
         path = self.getProperty('logger.path')
         level = self.getProperty('logger.level')
         level = logging.getLevelName(level)
-        logging.config.fileConfig(path)
+        try:
+            logging.config.fileConfig(os.path.abspath(path))
+        except:
+            logging.config.fileConfig(os.path.join(self._root_dir, path))
         logging.getLogger().setLevel(level)
 
     def _init_config(self):
-        self._cfg = config.load(self._path)
+        cfg = config.load(self._path)
+        if not self._cfg:
+            self._cfg = cfg
+            return
+        self._override_cfg(self._cfg.getNode(), cfg.getNode())
+
+    def _override_cfg(self, old, new):
+        for k, v in new.items():
+            if not isinstance(v, dict):
+                old[k] = v
+                continue
+            if k not in old:
+                old[k] = dict()
+            self._override_cfg(old[k], new[k])
 
     def file_path(self, path: str):
         if None is path or len(path.strip()) == 0:
