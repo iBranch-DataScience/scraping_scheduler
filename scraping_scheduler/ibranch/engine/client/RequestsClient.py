@@ -1,10 +1,9 @@
 import json
 
 import requests
-from singleton_decorator import singleton
-
 from org.ibranch.configuration.Configurator import Configuration
 from org.ibranch.util.Toolbox import Formatter
+from singleton_decorator import singleton
 
 
 def _inject_session(func):

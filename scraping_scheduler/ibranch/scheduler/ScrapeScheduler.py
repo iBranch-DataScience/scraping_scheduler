@@ -4,7 +4,6 @@ from abc import ABC, abstractmethod
 from apscheduler.events import EVENT_JOB_ERROR
 from apscheduler.schedulers.blocking import BlockingScheduler
 from apscheduler.triggers.cron import CronTrigger
-
 from org.ibranch.engine.job.Base import BaseJob
 from org.ibranch.scheduler.executor.TaskExecutor import ThreadExecutor as TaskExecutor
 from org.ibranch.util.Toolbox import Formatter

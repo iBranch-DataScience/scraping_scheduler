@@ -2,6 +2,8 @@ import logging
 import os
 from threading import Timer
 
+from org.ibranch.configuration.Configurator import Configuration
+from org.ibranch.engine.client.driver.Driver import DriverBuilder
 from selenium.common.exceptions import NoAlertPresentException, \
     UnexpectedAlertPresentException, JavascriptException, StaleElementReferenceException
 from selenium.webdriver.common.by import By
@@ -9,9 +11,6 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from singleton_decorator import singleton
-
-from org.ibranch.configuration.Configurator import Configuration
-from org.ibranch.engine.client.driver.Driver import DriverBuilder
 
 
 @singleton

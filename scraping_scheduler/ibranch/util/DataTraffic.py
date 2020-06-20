@@ -1,8 +1,7 @@
 import threading
 
-from singleton_decorator import singleton
-
 from org.ibranch.configuration.Configurator import Configuration
+from singleton_decorator import singleton
 
 
 @singleton

@@ -1,10 +1,9 @@
 import os
 
-from selenium import webdriver
-from singleton_decorator import singleton
-
 from org.ibranch.configuration.Configurator import Configuration
 from org.ibranch.domain.System import CONSTANT
+from selenium import webdriver
+from singleton_decorator import singleton
 
 
 @singleton
