@@ -1,6 +1,6 @@
 from abc import ABC
 
-from org.ibranch.configuration.Configurator import Configuration
+from scraping_scheduler.ibranch.configuration.Configurator import Configuration
 
 
 class BaseJob(ABC):

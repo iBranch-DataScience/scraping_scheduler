@@ -5,7 +5,7 @@ import os
 import config_with_yaml as config
 from singleton_decorator import singleton
 
-from org.ibranch.util.Toolbox import LogicUtil
+from scraping_scheduler.ibranch.util.Toolbox import LogicUtil
 
 
 def check_initialization(func):

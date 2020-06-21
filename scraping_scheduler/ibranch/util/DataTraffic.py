@@ -1,7 +1,8 @@
 import threading
 
-from org.ibranch.configuration.Configurator import Configuration
 from singleton_decorator import singleton
+
+from scraping_scheduler.ibranch.configuration.Configurator import Configuration
 
 
 @singleton

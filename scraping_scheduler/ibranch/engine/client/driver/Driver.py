@@ -1,9 +1,10 @@
 import os
 
-from org.ibranch.configuration.Configurator import Configuration
-from org.ibranch.domain.System import CONSTANT
 from selenium import webdriver
 from singleton_decorator import singleton
+
+from scraping_scheduler.ibranch.configuration.Configurator import Configuration
+from scraping_scheduler.ibranch.domain.System import CONSTANT
 
 
 @singleton
