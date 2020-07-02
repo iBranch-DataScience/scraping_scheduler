@@ -2,9 +2,8 @@ import logging
 from abc import abstractmethod
 from concurrent.futures.thread import ThreadPoolExecutor
 
-from singleton_decorator import singleton
-
 from scraping_scheduler.ibranch.configuration.Configurator import Configuration
+from singleton_decorator import singleton
 
 
 class BaseExecutor:
