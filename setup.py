@@ -1,17 +1,26 @@
 import setuptools
 from distutils.core import setup
 
+
 setup(
   name='scraping_scheduler',
   packages=setuptools.find_packages(),
-  version='0.0.6',
+  version='0.0.7',
   license='CC-BY-4.0',
   description='A bundle that includes task scheduler and scraping broker clients',
   author='Jian Jian',
   author_email='jjian03@syr.edu',
   url='https://github.com/iBranch-DataScience/scraping_scheduler',
-  download_url='https://github.com/iBranch-DataScience/scraping_scheduler/archive/0.0.6.tar.gz',
+  download_url='https://github.com/iBranch-DataScience/scraping_scheduler/releases',
   package_data={'': ['LICENSE']},
+  data_files=[
+      ('resource', [
+          'driver/mac/chromedriver',
+          'driver/ubuntu/chromedriver',
+          'property/logging.conf',
+          'property/properties.yaml',
+      ]),
+  ],
   include_package_data=True,
   keywords=[
       'scraping',
