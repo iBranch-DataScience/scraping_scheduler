@@ -10,8 +10,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from singleton_decorator import singleton
 
-from scraping_scheduler.ibranch.configuration.Configurator import Configuration
-from scraping_scheduler.ibranch.engine.client.driver.Driver import DriverBuilder
+from ibranch.scraping_scheduler.configuration.Configurator import Configuration
+from ibranch.scraping_scheduler.engine.client.driver.Driver import DriverBuilder
 
 
 @singleton

@@ -3,8 +3,8 @@ import os
 from selenium import webdriver
 from singleton_decorator import singleton
 
-from scraping_scheduler.ibranch.configuration.Configurator import Configuration
-from scraping_scheduler.ibranch.domain.System import CONSTANT
+from ibranch.scraping_scheduler.configuration.Configurator import Configuration
+from ibranch.scraping_scheduler.domain.System import CONSTANT
 
 
 @singleton

@@ -5,10 +5,10 @@ from apscheduler.events import EVENT_JOB_ERROR
 from apscheduler.schedulers.blocking import BlockingScheduler
 from apscheduler.triggers.cron import CronTrigger
 
-from scraping_scheduler.ibranch.engine.job.Base import BaseJob
-from scraping_scheduler.ibranch.scheduler.executor.TaskExecutor import ThreadExecutor as TaskExecutor
-from scraping_scheduler.ibranch.util.Toolbox import Formatter
-from scraping_scheduler.ibranch.util.Toolbox import LogicUtil
+from ibranch.scraping_scheduler.engine.job.Base import BaseJob
+from ibranch.scraping_scheduler.scheduler.executor.TaskExecutor import ThreadExecutor as TaskExecutor
+from ibranch.scraping_scheduler.util.Toolbox import Formatter
+from ibranch.scraping_scheduler.util.Toolbox import LogicUtil
 
 
 class Executor(ABC):

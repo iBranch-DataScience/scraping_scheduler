@@ -1,8 +1,8 @@
 import logging
 from importlib import import_module
 
-from scraping_scheduler.ibranch.configuration.Configurator import Configuration
-from scraping_scheduler.ibranch.scheduler.ScrapeScheduler import ScrapeScheduler
+from ibranch.scraping_scheduler.configuration.Configurator import Configuration
+from ibranch.scraping_scheduler.scheduler.ScrapeScheduler import ScrapeScheduler
 
 
 class ScraperEngine:

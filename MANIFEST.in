@@ -1,1 +1,1 @@
-recursive-include scraping_scheduler/ibranch/resource *
+recursive-include ibranch/scraping_scheduler/resource *

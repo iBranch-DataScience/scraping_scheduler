@@ -3,8 +3,8 @@ import json
 import requests
 from singleton_decorator import singleton
 
-from scraping_scheduler.ibranch.configuration.Configurator import Configuration
-from scraping_scheduler.ibranch.util.Toolbox import Formatter
+from ibranch.scraping_scheduler.configuration.Configurator import Configuration
+from ibranch.scraping_scheduler.util.Toolbox import Formatter
 
 
 def _inject_session(func):

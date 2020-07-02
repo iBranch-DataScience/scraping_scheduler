@@ -4,7 +4,7 @@ from concurrent.futures.thread import ThreadPoolExecutor
 
 from singleton_decorator import singleton
 
-from scraping_scheduler.ibranch.configuration.Configurator import Configuration
+from ibranch.scraping_scheduler.configuration.Configurator import Configuration
 
 
 class BaseExecutor:
