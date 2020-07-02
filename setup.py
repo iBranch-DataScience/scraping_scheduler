@@ -14,7 +14,6 @@ setup(
   download_url='https://github.com/iBranch-DataScience/scraping_scheduler/releases',
   package_data={
       '': ['LICENSE'],
-      'src': ['ibranch/resource/*',],
   },
   include_package_data=True,
   keywords=[
