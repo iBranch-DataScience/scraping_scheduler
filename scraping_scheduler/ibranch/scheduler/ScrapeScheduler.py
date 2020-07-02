@@ -4,6 +4,7 @@ from abc import ABC, abstractmethod
 from apscheduler.events import EVENT_JOB_ERROR
 from apscheduler.schedulers.blocking import BlockingScheduler
 from apscheduler.triggers.cron import CronTrigger
+
 from scraping_scheduler.ibranch.engine.job.Base import BaseJob
 from scraping_scheduler.ibranch.scheduler.executor.TaskExecutor import ThreadExecutor as TaskExecutor
 from scraping_scheduler.ibranch.util.Toolbox import Formatter
