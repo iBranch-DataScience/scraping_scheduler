@@ -34,6 +34,10 @@ class CONSTANT:
         return "presentation"
 
     @staticmethod
+    def sample():
+        return "sample"
+
+    @staticmethod
     def chrome_name():
         return "CHROME"
 
