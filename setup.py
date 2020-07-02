@@ -14,12 +14,7 @@ setup(
   download_url='https://github.com/iBranch-DataScience/scraping_scheduler/releases',
   package_data={
       '': ['LICENSE'],
-      'scraping_scheduler/ibranch/resource': [
-          'driver/mac/chromedriver',
-          'driver/ubuntu/chromedriver',
-          'property/logging.conf',
-          'property/properties.yaml',
-      ],
+      'scraping_scheduler': ['ibranch/resource/*',],
   },
   include_package_data=True,
   keywords=[
