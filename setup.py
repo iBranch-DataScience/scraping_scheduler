@@ -12,15 +12,15 @@ setup(
   author_email='jjian03@syr.edu',
   url='https://github.com/iBranch-DataScience/scraping_scheduler',
   download_url='https://github.com/iBranch-DataScience/scraping_scheduler/releases',
-  package_data={'': ['LICENSE']},
-  data_files=[
-      ('ibranch/resource', [
+  package_data={
+      '': ['LICENSE'],
+      'scraping_scheduler/ibranch/resource': [
           'driver/mac/chromedriver',
           'driver/ubuntu/chromedriver',
           'property/logging.conf',
           'property/properties.yaml',
-      ]),
-  ],
+      ],
+  },
   include_package_data=True,
   keywords=[
       'scraping',
