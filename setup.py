@@ -3,14 +3,14 @@ from distutils.core import setup
 
 setup(
   name='scraping_scheduler',
-  packages=['scraping_scheduler'],
-  version='0.0.4',
-  license='MIT',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
+  package_dir={'': 'scraping_scheduler'},
+  version='0.0.5',
+  license='CC-BY-4.0',
   description='A bundle that includes task scheduler and scraping broker clients',
   author='Jian Jian',
   author_email='jjian03@syr.edu',
   url='https://github.com/iBranch-DataScience/scraping_scheduler',
-  download_url='https://github.com/iBranch-DataScience/scraping_scheduler/archive/0.0.4.tar.gz',
+  download_url='https://github.com/iBranch-DataScience/scraping_scheduler/archive/0.0.5.tar.gz',
   keywords=[
       'scraping',
       'scheduler',
