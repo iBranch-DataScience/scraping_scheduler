@@ -8,9 +8,9 @@ driver_path:
 
 screenshot_path: ./screenshot
 
-cache:
-  {cache_name}:
-    size: 20
+#cache:
+#  {cache_name}:
+#    size: 20
 
 #jobs:
 #  package: {job_package_name}
