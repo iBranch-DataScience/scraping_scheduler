@@ -27,21 +27,12 @@ class BaseJob(ABC):
 
     @property
     def schedule_type(self):
-        return self._get_config()[self.__class__.__name__]['type']
+        return Configuration().getProperty(f"jobs.list.{type(self).__name__}.type")
 
     @property
     def cron(self):
-        return self._get_config()[self.__class__.__name__]['cron']
+        return Configuration().getProperty(f"jobs.list.{type(self).__name__}.cron")
 
     @property
     def sec(self):
-        return self._get_config()[self.__class__.__name__]['sec']
-
-    def _get_config(self):
-        job_list = Configuration().getProperty("jobs.list")
-        job = [job_config for job_config in job_list if self.__class__.__name__ in job_config]
-        if len(job) == 0:
-            raise AttributeError(f'{self.__class__.__name__} not configured')
-        if len(job) > 1:
-            raise AttributeError(f'{self.__class__.__name__} configured multiple times')
-        return job[0]
+        return Configuration().getProperty(f"jobs.list.{type(self).__name__}.sec")

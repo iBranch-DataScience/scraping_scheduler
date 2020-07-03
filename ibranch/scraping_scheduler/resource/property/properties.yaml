@@ -16,13 +16,13 @@ screenshot_path: ./screenshot
 #  package: {job_package_name}
 #  module: {job_file_name}
 #  list:
-#    - {job_name}:
+#    {job_name}:
 #        type: one-off
-#    - {job_name}:
+#    {job_name}:
 #        type: sec
 #        sec: 10
 #        pool_size: 10
-#    - {job_name}:
+#    {job_name}:
 #        type: cron
 #        cron: "19,39,59 * * * *"
 #        pool_size: 10

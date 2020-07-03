@@ -21,8 +21,7 @@ class ScraperEngine:
 
         with ScrapeScheduler() as scheduler:
             # Jobs:
-            for job_config in self._job_list:
-                job_name = list(job_config.keys())[0]
+            for job_name in self._job_list.keys():
                 job = getattr(Job_Package, job_name)
                 scheduler.register_job(job())
             # Go
