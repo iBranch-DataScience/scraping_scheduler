@@ -8,24 +8,24 @@ driver_path:
 
 screenshot_path: ./screenshot
 
-#schedule:
-#  {job_name:
-#    type: one-off
-#  {job_name}:
-#    type: sec
-#    sec: 10
-#  {job_name}:
-#    type: cron
-#    cron: "19,39,59 * * * *"
-#  jobs:
-#    package: {job_package_name}
-#    module: {job_file_name}
-#    list:
-#      - {job_class_name}
+cache:
+  {cache_name}:
+    size: 20
 
-#thread_pool:
-#  {pool_name}:
-#    size: 10
+#jobs:
+#  package: {job_package_name}
+#  module: {job_file_name}
+#  list:
+#    - {job_name}:
+#        type: one-off
+#    - {job_name}:
+#        type: sec
+#        sec: 10
+#        pool_size: 10
+#    - {job_name}:
+#        type: cron
+#        cron: "19,39,59 * * * *"
+#        pool_size: 10
 
 client:
   tmp_dir: ./tmp_file

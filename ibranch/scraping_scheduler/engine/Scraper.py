@@ -9,7 +9,7 @@ class ScraperEngine:
     def __init__(self):
         self._logger = logging.getLogger(type(self).__name__)
 
-        jobs = Configuration().getProperty('schedule.jobs')
+        jobs = Configuration().getProperty('jobs')
         self._package = jobs.get("package")
         self._module = jobs.get("module")
         self._job_list = jobs.get("list")
@@ -21,7 +21,8 @@ class ScraperEngine:
 
         with ScrapeScheduler() as scheduler:
             # Jobs:
-            for job_name in self._job_list:
+            for job_config in self._job_list:
+                job_name = list(job_config.keys())[0]
                 job = getattr(Job_Package, job_name)
                 scheduler.register_job(job())
             # Go

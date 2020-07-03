@@ -23,17 +23,21 @@ class ThreadExecutor(BaseExecutor):
     def __init__(self):
         self._logger = logging.getLogger(type(self).__name__)
         cfg = Configuration()
-        pool_types = cfg.getProperty("thread_pool").keys()
+        pool_types = cfg.getProperty("jobs.list")
 
         self._pools = dict()
         for pool_type in pool_types:
-            max_workers = cfg.getProperty(f"thread_pool.{pool_type}.size")
+            pool_name = list(pool_type.keys())[0]
+            pool_size = 1
+            if 'one-off' != pool_type[pool_name]["type"]:
+                pool_size = pool_type[pool_name]["pool_size"]
+            max_workers = pool_size
 
             # Configure worker
             thread_pool_executor = ThreadPoolExecutor(
                 thread_name_prefix=f'task_executor_{pool_type}',
                 max_workers=max_workers)
-            self._pools[pool_type] = thread_pool_executor
+            self._pools[pool_name] = thread_pool_executor
 
     def submit_tasks(self, pool_type, tasks):
         thread_pool_executor = self._pools[pool_type]
