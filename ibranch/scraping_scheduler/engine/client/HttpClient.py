@@ -38,41 +38,68 @@ class ClientFactory:
         return Client(self._timeout)
 
 
-class Client:
-    def __init__(self, timeout):
-        self._timeout = timeout
-        self._response = None
+class Rensponse:
+    def __init__(self, response):
+        self._response = response
 
-    @_inject_session
-    def _get(self, session, url):
-        self._response = session.get(url=url, timeout=self._timeout)
-        return self
+    @property
+    def response(self):
+        return self._response
 
-    def get(self, url):
-        return self._get(None, url)
-
-    def get_header(self):
+    @property
+    def header(self):
         return self._response.headers
 
     def is_success(self):
-        return self.get_html_status_code() == 200
+        return self.html_status_code == 200
 
-    def get_html_status_code(self):
+    @property
+    def html_status_code(self):
         return self._response.status_code
 
-    def get_source_code(self):
+    @property
+    def source_code(self):
         return self._response.text
 
-    def get_header_map(self):
+    @property
+    def header_map(self):
         return Formatter.to_lower_case_dict(self._response.headers)
 
     def is_text_transmission(self):
-        if 'content-type' not in self.get_header_map():
+        if 'content-type' not in self.header_map:
             return False
-        return 'text/' in self.get_header_map()['content-type']
+        return 'text/' in self.header_map['content-type']
 
-    def get_json(self):
+    @property
+    def json(self):
         return self._response.json()
 
-    def get_header_dump(self):
-        return json.dumps(self.get_header_map())
+    @property
+    def header_dump(self):
+        return json.dumps(self.header_map)
+
+
+class Client:
+    def __init__(self, timeout):
+        self._timeout = timeout
+
+    @_inject_session
+    def _get(self, session, url, headers) -> Rensponse:
+        response = session.get(url=url, timeout=self._timeout, headers=headers)
+        return Rensponse(response)
+
+    # HTTP invocation
+    def get(self, url, headers=None) -> Rensponse:
+        return self._get(None, url, headers)
+
+    def post(self):
+        raise NotImplementedError()
+
+    def put(self):
+        raise NotImplementedError()
+
+    def delete(self):
+        raise NotImplementedError()
+
+    def head(self):
+        raise NotImplementedError()
