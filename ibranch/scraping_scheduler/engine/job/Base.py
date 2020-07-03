@@ -26,10 +26,6 @@ class BaseJob(ABC):
         return self._cache
 
     @property
-    def job_class(self):
-        raise NotImplementedError()
-
-    @property
     def schedule_type(self):
         return self._get_config()[self.__class__.__name__]['type']
 
